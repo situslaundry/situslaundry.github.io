@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>085773009666 Jasa Laundry Kiloan & Satuan Bogor Terpercaya | Bogor Laundry Listing</title>
+  <meta name="description" content="Layanan jasa laundry kiloan, express, karpet, sepatu, dan bedcover terlengkap di seluruh wilayah Kabupaten dan Kota Bogor. Antar jemput cepat dan higienis.">
+  
+  <!-- Skrip Data Eksternal (Opsional jika dipisah per struktur folder) -->
+  <script src="jsf/bogorlisting/dataPhone.js" onerror="console.log('Using embedded dataPhone fallback')"></script>
+  <script src="jsf/bogorlisting/dataLaundry.js" onerror="console.log('Using embedded dataLaundry fallback')"></script>
+  <script src="jsf/bogorlisting/dataWilayah.js" onerror="console.log('Using embedded dataWilayah fallback')"></script>
+
+  <style>
+    :root {
+      --primary-blue: #0b4fbf;
+      --primary-dark-blue: #083b91;
+      --accent-orange: #ff7700;
+      --accent-orange-hover: #e06600;
+      --text-black: #1a1a1a;
+      --text-muted: #555555;
+      --bg-white: #ffffff;
+      --bg-light: #f4f7fb;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 15px rgba(0,0,0,0.06);
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-black);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      background-color: var(--primary-blue);
+      color: var(--bg-white);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--bg-white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-logo span {
+      color: var(--accent-orange);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .btn-contact {
+      background-color: var(--accent-orange);
+      color: var(--bg-white);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: background 0.2s;
+    }
+
+    .btn-contact:hover {
+      background-color: var(--accent-orange-hover);
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 20px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark-blue));
+      color: var(--bg-white);
+      padding: 40px 24px;
+      border-radius: var(--radius);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      max-width: 780px;
+      margin: 0 auto 20px;
+      opacity: 0.95;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background-color: var(--accent-orange);
+      color: var(--bg-white);
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(255, 119, 0, 0.4);
+      transition: transform 0.15s, background 0.2s;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-2px);
+      background-color: var(--accent-orange-hover);
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb {
+      background: var(--bg-white);
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .breadcrumb a {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .breadcrumb span.separator {
+      color: #aaa;
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      font-size: 1.4rem;
+      color: var(--primary-blue);
+      margin: 30px 0 16px;
+      border-left: 5px solid var(--accent-orange);
+      padding-left: 10px;
+    }
+
+    /* GRID SERVICES & PRICING */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .service-card {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .service-img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .service-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .service-title {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+      color: var(--text-black);
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      flex: 1;
+    }
+
+    .service-pricing {
+      background: var(--bg-light);
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+
+    .price-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .price-val {
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .service-action {
+      display: block;
+      text-align: center;
+      background: var(--primary-blue);
+      color: var(--bg-white);
+      padding: 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .service-action:hover {
+      background: var(--primary-dark-blue);
+    }
+
+    /* WILAYAH LISTING */
+    .wilayah-box {
+      background: var(--bg-white);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+
+    .wilayah-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .wilayah-pill {
+      background: var(--bg-light);
+      color: var(--text-black);
+      border: 1px solid var(--border-color);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .wilayah-pill:hover {
+      background: var(--primary-blue);
+      color: var(--bg-white);
+      border-color: var(--primary-blue);
+    }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: linear-gradient(90deg, var(--accent-orange), #ff9900);
+      color: var(--bg-white);
+      padding: 30px 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      margin: 35px 0;
+    }
+
+    .cta-banner h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    .cta-btn {
+      margin-top: 15px;
+      display: inline-block;
+      background: var(--text-black);
+      color: var(--bg-white);
+      padding: 10px 24px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* FAQ */
+    .faq-container {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 700;
+      color: var(--primary-blue);
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .faq-a {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* TESTIMONIAL */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .testi-card {
+      background: var(--bg-white);
+      padding: 18px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--accent-orange);
+    }
+
+    .testi-text {
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .testi-author {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-black);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--text-black);
+      color: var(--bg-white);
+      padding: 35px 20px 20px;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 30px;
+      margin-bottom: 25px;
+    }
+
+    .footer-col h4 {
+      color: var(--accent-orange);
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .footer-col p, .footer-col li {
+      font-size: 0.88rem;
+      color: #bbb;
+      margin-bottom: 6px;
+      list-style: none;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 15px;
+      border-top: 1px solid #333;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    /* FLOATING WA BUTTON */
+    .floating-wa {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+      z-index: 999;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 1.5rem; }
+      .brand-logo { font-size: 1.1rem; }
+      .nav-links { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-logo">BOGOR <span>LAUNDRY</span></a>
+      <div class="nav-links">
+        <a href="#" class="btn-contact" id="navPhoneBtn">Hubungi Kami</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN APP CONTAINER -->
+  <main id="appContent">
+    <!-- Konten dinamis di-render lewat Hash Router -->
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4>Bogor Laundry Listing</h4>
+        <p>Pusat informasi jasa laundry kiloan dan satuan resmi untuk seluruh wilayah Kabupaten dan Kota Bogor.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Layanan Utama</h4>
+        <ul>
+          <li>Laundry Kiloan Cuci Lipat & Setrika</li>
+          <li>Laundry Sepatu & Tas Branded</li>
+          <li>Laundry Karpet Masjid & Kantor</li>
+          <li>Laundry Bedcover & Boneka Jumbo</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak Hotline</h4>
+        <p id="footerPhoneDisplay">WhatsApp: 085773009666</p>
+        <p>Email: order@laundry.bogor.id</p>
+        <p>Layanan Antar Jemput: 07.00 - 21.00 WIB</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="yearVal"></span> Bogor Laundry Listing. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- FLOATING WA BUTTON -->
+  <a href="#" id="floatingWaBtn" class="floating-wa" target="_blank">
+    <span>💬 Chat WhatsApp</span>
+  </a>
+
+  <!-- SCRIPT LOGIC (ROUTER, DATA & ENGINE) -->
+  <script>
+    /* ==========================================================================
+       1. DATA ENGINE (Embedded Fallback + External Sync)
+       ========================================================================== */
+    window.dataPhone = window.dataPhone || {
+      primary: "085773009666",
+      formatted: "0857-7300-9666",
+      waLink: "https://wa.me/6285773009666"
+    };
+
+    window.dataLaundry = window.dataLaundry || [
+      {
+        id: "laundry-kiloan",
+        name: "Laundry Kiloan (Reguler / Kilat / Express)",
+        unit: "kg",
+        thumbnail: "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?w=600&auto=format&fit=crop&q=80",
+        description: "Layanan cuci bersih, wangi, higienis dan disetrika rapi dengan standar deterjen ramah serat kain.",
+        pricing: [
+          { type: "Reguler (2 Hari)", price: "Rp 7.000 / kg" },
+          { type: "Kilat (1 Hari / 24 Jam)", price: "Rp 10.000 / kg" },
+          { type: "Express (6-8 Jam)", price: "Rp 15.000 / kg" }
+        ]
+      },
+      {
+        id: "laundry-bedcover",
+        name: "Laundry Bedcover & Selimut",
+        unit: "pcs",
+        thumbnail: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?w=600&auto=format&fit=crop&q=80",
+        description: "Pembersihan menyeluruh bebas debu dan tungau dengan mesin kapasitas besar agar isi silikon tetap empuk.",
+        pricing: [
+          { type: "Bedcover Single", price: "Rp 25.000 / pcs" },
+          { type: "Bedcover King / Jumbo", price: "Rp 35.000 / pcs" },
+          { type: "Selimut Tebal", price: "Rp 20.000 / pcs" }
+        ]
+      },
+      {
+        id: "laundry-sepatu",
+        name: "Laundry Sepatu & Sneaker Care",
+        unit: "pasang",
+        thumbnail: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop&q=80",
+        description: "Deep clean khusus untuk sneaker, kanvas, suede, dan kulit dengan cleaner premium anti-yellowing.",
+        pricing: [
+          { type: "Fast Clean (Upper + Midsole)", price: "Rp 25.000 / pasang" },
+          { type: "Deep Clean Premium", price: "Rp 40.000 / pasang" },
+          { type: "Unyellowing Treatment", price: "Rp 55.000 / pasang" }
+        ]
+      },
+      {
+        id: "laundry-karpet",
+        name: "Laundry Karpet Rumah & Masjid",
+        unit: "m2",
+        thumbnail: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=600&auto=format&fit=crop&q=80",
+        description: "Pembersihan karpet kantor, tebal, maupun masjid menggunakan spinner khusus cepat kering dan bebas bau apek.",
+        pricing: [
+          { type: "Karpet Tipis / Standar", price: "Rp 15.000 / m2" },
+          { type: "Karpet Bulu / Tebal", price: "Rp 25.000 / m2" },
+          { type: "Karpet Masjid Roll", price: "Rp 12.000 / m2" }
+        ]
+      },
+      {
+        id: "laundry-boneka",
+        name: "Laundry Boneka & Perlengkapan Bayi",
+        unit: "pcs",
+        thumbnail: "https://images.unsplash.com/photo-1558877385-81a1c7e67d72?w=600&auto=format&fit=crop&q=80",
+        description: "Perawatan higienis khusus boneka, stroller, dan car seat dengan desinfektan ramah anak.",
+        pricing: [
+          { type: "Boneka Sedang (20-40 cm)", price: "Rp 15.000 / pcs" },
+          { type: "Boneka Jumbo (> 70 cm)", price: "Rp 35.000 / pcs" },
+          { type: "Stroller Bayi", price: "Rp 65.000 / unit" }
+        ]
+      }
+    ];
+
+    window.dataWilayah = window.dataWilayah || {
+      "kabupaten-bogor": {
+        name: "Kabupaten Bogor",
+        type: "Kabupaten",
+        kecamatan: {
+          "cileungsi": { name: "Cileungsi", desa: ["Pasirangin", "Cileungsi Kidul", "Cileungsi", "Limusnunggal", "Cipenjo", "Mekarsari", "Dayeuh", "Gandoang", "Mampir", "Jatisari", "Setu Sari", "Cipeucang"] },
+          "gunung-putri": { name: "Gunung Putri", desa: ["Wanaherang", "Tlajung Udik", "Bojong Nangka", "Gunung Putri", "Cicadas", "Bojong Kulur", "Nagrak", "Ciangsana", "Cikeas Udik", "Kragan"] },
+          "cibinong": { name: "Cibinong", desa: ["Cirimekar", "Ciriung", "Harapan Jaya", "Karadenan", "Nanggewer", "Nanggewer Mekar", "Pabuaran", "Pabuaran Mekar", "Pakansari", "Pondok Rajeg", "Sukahati", "Tengah", "Kalibaru"] },
+          "jonggol": { name: "Jonggol", desa: ["Jonggol", "Singajaya", "Sirnagalih", "Sukasirna", "Balekambang", "Bendungan", "Cibodas", "Sukanegara", "Weninggalih"] },
+          "citeureup": { name: "Citeureup", desa: ["Citeureup", "Puspanegara", "Karang Asem Barat", "Gunung Sari", "Hambalang", "Leuwinutug", "Pasir Mukti", "Sanja", "Sukahati", "Tajur", "Tanggulun"] },
+          "klapanunggal": { name: "Klapanunggal", desa: ["Bantarjati", "Bojong", "Cikahuripan", "Kembang Kuning", "Klapanunggal", "Leuwikaret", "Lulut", "Nambo", "Ligarmukti"] },
+          "babakan-madang": { name: "Babakan Madang", desa: ["Babakan Madang", "Bojong Koneng", "Cadas Ngampar", "Cipambuan", "Citaringgul", "Kadumangu", "Karang Tengah", "Sentul", "Sumur Batu"] },
+          "sukaraja": { name: "Sukaraja", desa: ["Cadasngampar", "Cibanon", "Cijujung", "Cikeas", "Cilebut Barat", "Cilebut Timur", "Cimandala", "Gunung Geulis", "Nagrak", "Pasir Jambu", "Pasirlaja", "Sukaraja", "Sukatani"] },
+          "bojonggede": { name: "Bojonggede", desa: ["Bojonggede", "Kedung Waringin", "Ragajaya", "Rawa Panjang", "Susukan", "Waringin Jaya", "Pabuaran", "Bojong Baru"] },
+          "kemang": { name: "Kemang", desa: ["Bojong", "Kemang", "Pabuaran", "Parakan Jaya", "Pondok Udik", "Semplak Barat", "Tegal"] },
+          "parung": { name: "Parung", desa: ["Bojong Indah", "Bojong Sempu", "Cogreg", "Iwul", "Jabon Mekar", "Pamagersari", "Parung", "Warujaya", "Warukalapa"] },
+          "parung-panjang": { name: "Parung Panjang", desa: ["Cibunar", "Cikuda", "Dago", "Gintung Cilejet", "Gorowong", "Jagabita", "Kabasiran", "Lumpang", "Parungpanjang", "Pingku"] },
+          "cariu": { name: "Cariu", desa: ["Babakan Raden", "Bantar Kuning", "Cariu", "Cibatu Tiga", "Cikutamahi", "Karya Mekar", "Kuta Mekar", "Mekarwangi", "Sukajadi", "Tegal Panjang"] },
+          "tanjungsari": { name: "Tanjungsari", desa: ["Antajaya", "Buanajaya", "Cibadak", "Pasir Tanjung", "Selawangi", "Sirnarasa", "Sirnasari", "Sukarasa", "Tanjungrasa", "Tanjungsari"] },
+          "sukamakmur": { name: "Sukamakmur", desa: ["Cibadak", "Pabuaran", "Sirnajaya", "Sukadamai", "Sukaharja", "Sukamakmur", "Sukamulya", "Sukaresmi", "Wargaluyu"] },
+          "ciawi": { name: "Ciawi", desa: ["Banjar Sari", "Banjar Wangi", "Bitung Sari", "Bojong Murni", "Ciawi", "Cibedug", "Cileungsi", "Citapen", "Jambu Luwuk", "Pandansari", "Teluk Pinang"] },
+          "cisarua": { name: "Cisarua", desa: ["Batulayang", "Cibeureum", "Cilember", "Cisarua", "Jogjogan", "Kopo", "Leuwimalang", "Tugu Selatan", "Tugu Utara"] },
+          "megamendung": { name: "Megamendung", desa: ["Cipayung Datar", "Cipayung Girang", "Gadog", "Kuta", "Megamendung", "Mensa", "Pasir Angin", "Sukagalih", "Sukakarya", "Sukamahi", "Sukamaju"] },
+          "cijeruk": { name: "Cijeruk", desa: ["Cibalung", "Cijeruk", "Cipelang", "Palasari", "Tajur Halang", "Tanjungsari", "Warung Menteng", "Sukaharja", "Cipicung"] },
+          "cigombong": { name: "Cigombong", desa: ["Ciburayut", "Ciburuy", "Cigombong", "Cisalada", "Pasirjaya", "Srogol", "Tugujaya", "Watesjaya", "Panyarungan"] },
+          "tamansari": { name: "Tamansari", desa: ["Calobak", "Pasireurih", "Sirnagalih", "Sukajadi", "Sukajaya", "Sukaluyu", "Sukamantri", "Tamansari"] },
+          "ciomas": { name: "Ciomas", desa: ["Ciomas", "Ciomas Rahayu", "Kotabatu", "Laladon", "Mekarjaya", "Pagelaran", "Parakan", "Sukaharja", "Sukamakmur"] },
+          "dramaga": { name: "Dramaga", desa: ["Babakan", "Ciherang", "Cikarawang", "Dramaga", "Neglasari", "Petir", "Purwasari", "Sinarsari", "Sukadamai", "Sukawening"] },
+          "tenjolaya": { name: "Tenjolaya", desa: ["Cibitung Tengah", "Cinangneng", "Gunung Malang", "Gunung Mulya", "Situ Daun", "Tapos I", "Tapos II"] },
+          "cibungbulang": { name: "Cibungbulang", desa: ["Cemplang", "Ciaruteun Ilir", "Ciaruteun Udik", "Cibatok I", "Cibatok II", "Cijujung", "Cimanggu 1", "Cimanggu 2", "Dukuh", "Galuga", "Girijaya", "Leuweung Kolot", "Situ Ilir", "Situ Udik", "Sukamaju"] },
+          "pamijahan": { name: "Pamijahan", desa: ["Ciasihan", "Ciasmara", "Cibening", "Cibitung Kulon", "Cibitung Wetan", "Cibunian", "Cimayang", "Gunung Bunder I", "Gunung Bunder II", "Gunung Menyan", "Gunung Picung", "Gunung Sari", "Pamijahan", "Pasarean", "Purwabakti"] },
+          "leuwiliang": { name: "Leuwiliang", desa: ["Barengkok", "Cibeber I", "Cibeber II", "Karacak", "Karyasari", "Karehkel", "Leuwiliang", "Leuwimekar", "Pabangbon", "Purasari", "Puraseda"] },
+          "leuwisadeng": { name: "Leuwisadeng", desa: ["Babakan Sadeng", "Kalong I", "Kalong II", "Leuwisadeng", "Sadeng", "Sadengkolot", "Sibanteng", "Wangun Jaya"] },
+          "nanggung": { name: "Nanggung", desa: ["Bantar Karet", "Batu Tulis", "Cisarua", "Curug Bitung", "Kalong Liud", "Malasari", "Nanggung", "Pangkal Jaya", "Sukaluyu", "Hambaro"] },
+          "sukajaya": { name: "Sukajaya", desa: ["Cileuksa", "Cisarua", "Jayaraharja", "Kiarapandak", "Kiarasari", "Madang", "Pasir Madang", "Sipayung", "Sukajaya", "Sukamulih", "Urug"] },
+          "jasinga": { name: "Jasinga", desa: ["Bageur", "Barengkok", "Cikopomayak", "Curug", "Jasinga", "Jugala Jaya", "Kalongsawah", "Koleang", "Pangaur", "Pangradin", "Sipak", "Setu", "Tegal Wangi"] },
+          "cigudeg": { name: "Cigudeg", desa: ["Argapura", "Banyuasih", "Banyuresmi", "Batujajar", "Bunar", "Cigudeg", "Cintamanik", "Mekarjaya", "Rengasjajar", "Sukajaya", "Sukaraksa", "Sukaraja", "Tegallega", "Wargajaya"] },
+          "tenjo": { name: "Tenjo", desa: ["Babakan", "Bojong", "Cilaku", "Ciomas", "Singabraja", "Tapos", "Tenjo"] },
+          "ranca-bungur": { name: "Ranca Bungur", desa: ["Bantarjaya", "Bantarsari", "Candali", "Mekarsari", "Pasircongtok", "Rancabungur", "Sukaresmi"] },
+          "tajurhalang": { name: "Tajurhalang", desa: ["Citayam", "Kalisuren", "Nanggerang", "Sasak Panjang", "Sukmajaya", "Tajurhalang", "Tonjong"] },
+          "ciseeng": { name: "Ciseeng", desa: ["Babakan", "Cibeuteung Muara", "Cibeuteung Udik", "Cibentang", "Cihoe", "Ciseeng", "Karihkil", "Kuripan", "Parigi Mekar", "Putat Nutug"] },
+          "gunung-sindur": { name: "Gunung Sindur", desa: ["Cibadung", "Cibinong", "Cidokom", "Curug", "Gunung Sindur", "Jampang", "Pabuaran", "Padurenan", "Pengasinan", "Rawa Kalong"] },
+          "rumpin": { name: "Rumpin", desa: ["Cibodas", "Cidokom", "Cipinang", "Gobang", "Hulubatu", "Kertajaya", "Leuwibatu", "Mekarsari", "Rumpin", "Sukamulya", "Sukasari", "Tamansari"] },
+          "tajur-katulampa": { name: "Caringin", desa: ["Caringin", "Ciherang Pondok", "Ciderum", "Cinagara", "Lemah Duhur", "Muara Jaya", "Pancawati", "Pasir Buncir", "Pasir Muncang", "Tangkil"] },
+          "sukajadi": { name: "Ciampea", desa: ["Bojong Jengkol", "Bojong Rangkas", "Ciampea", "Ciampea Udik", "Cibadak", "Cibanteng", "Cibuntu", "Cicadas", "Cihideung Ilir", "Cihideung Udik", "Cinangka", "Tegal Waru"] }
+        }
+      },
+      "kota-bogor": {
+        name: "Kota Bogor",
+        type: "Kota",
+        kecamatan: {
+          "bogor-barat": { name: "Bogor Barat", desa: ["Balungbangjaya", "Bubulak", "Cilendek Barat", "Cilendek Timur", "Curug", "Curugmekar", "Gunungbatu", "Loji", "Margajaya", "Menteng", "Pasirjaya", "Pasirkuda", "Pasirmulya", "Semplak", "Sindangbarang", "Situgede"] },
+          "bogor-selatan": { name: "Bogor Selatan", desa: ["Batutulis", "Bojongkerta", "Bondongan", "Cikaret", "Cipaku", "Empang", "Genteng", "Harjasari", "Kertamaya", "Lawanggintung", "Muarasari", "Mulyaharja", "Pakuan", "Pamoyanan", "Rancamaya", "Ranggamekar"] },
+          "bogor-tengah": { name: "Bogor Tengah", desa: ["Babakan", "Babakanpasar", "Cibogor", "Ciwaringin", "Gudang", "Kebonkelapa", "Pabaton", "Paledang", "Panaragan", "Sempur", "Tegallega"] },
+          "bogor-timur": { name: "Bogor Timur", desa: ["Baranangsiang", "Katulampa", "Sindangrasa", "Sindangbarang", "Sukasari", "Tajur"] },
+          "bogor-utara": { name: "Bogor Utara", desa: ["Bantarjati", "Cibuluh", "Ciluar", "Cimahpar", "Ciparigi", "Kedunghalang", "Tanahbaru", "Tegalgundil"] },
+          "tanah-sareal": { name: "Tanah Sareal", desa: ["Cibadak", "Kayumanis", "Kebonpedes", "Kedungbadak", "Kedungjaya", "Kedungwaringin", "Kencana", "Mekarwangi", "Sukadamai", "Sukaresmi", "Tanahsareal"] }
+        }
+      }
+    };
+
+    /* ==========================================================================
+       2. HELPER FUNCTIONS
+       ========================================================================== */
+    function slugify(text) {
+      return text.toString().toLowerCase().trim()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-');
+    }
+
+    function createWaLink(customText) {
+      const base = window.dataPhone.primary.replace(/^0/, '62');
+      return `https://wa.me/${base}?text=${encodeURIComponent(customText)}`;
+    }
+
+    function updateSEO(title, description) {
+      document.title = title;
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.setAttribute('content', description);
+    }
+
+    /* ==========================================================================
+       3. TEMPLATE GENERATORS
+       ========================================================================== */
+    function renderServicesList(locationLabel = "Bogor") {
+      return `
+        <div class="section-title">Daftar Layanan & Estimasi Tarif Jasa Laundry</div>
+        <div class="services-grid">
+          ${window.dataLaundry.map(item => `
+            <div class="service-card">
+              <img src="${item.thumbnail}" alt="${item.name}" class="service-img" loading="lazy">
+              <div class="service-body">
+                <h3 class="service-title">${item.name}</h3>
+                <p class="service-desc">${item.description}</p>
+                <div class="service-pricing">
+                  ${item.pricing.map(p => `
+                    <div class="price-item">
+                      <span>${p.type}</span>
+                      <span class="price-val">${p.price}</span>
+                    </div>
+                  `).join('')}
+                </div>
+                <a href="${createWaLink(`Halo, saya ingin pesan ${item.name} untuk area ${locationLabel}.`)}" target="_blank" class="service-action">
+                  Pesan Layanan
+                </a>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderFaq(locName = "Bogor") {
+      return `
+        <div class="section-title">Frequently Asked Questions (FAQ)</div>
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-q">Apakah tersedia layanan antar-jemput laundry di ${locName}?</div>
+            <div class="faq-a">Ya, kami melayani kurir antar-jemput laundry langsung ke rumah, kantor, kost, atau apartemen Anda di area ${locName} dan sekitarnya.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Berapa minimal order untuk laundry kiloan?</div>
+            <div class="faq-a">Minimal order kiloan antar jemput adalah 3-5 kg. 1 mesin cuci digunakan khusus untuk 1 nota pelanggan (tidak dicampur).</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Berapa lama estimasi pengerjaan laundry kilat & express?</div>
+            <div class="faq-a">Layanan Kilat selesai dalam 24 jam, sedangkan Layanan Express siap dalam 6 hingga 8 jam sejak cucian dijemput.</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderTestimonials(locName = "Bogor") {
+      return `
+        <div class="section-title">Testimoni Pelanggan Setia</div>
+        <div class="testimonial-grid">
+          <div class="testi-card">
+            <div class="testi-text">"Paling rekomen untuk laundry kiloan express di ${locName}. Pakaian wangi tahan lama, rapi, dan kurirnya tepat waktu."</div>
+            <div class="testi-author">⭐⭐⭐⭐⭐ - Rina Amelia</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-text">"Cuci bedcover dan karpet hasilnya bersih maksimal, noda kopi hilang dan aromanya fresh banget. Mantap!"</div>
+            <div class="testi-author">⭐⭐⭐⭐⭐ - Hendra Gunawan</div>
+          </div>
+          <div class="testi-card">
+            <div class="testi-text">"Sneakers putih saya yang yellowing bisa kinclong lagi. Pelayanan ramah via WhatsApp."</div>
+            <div class="testi-author">⭐⭐⭐⭐⭐ - Dimas Pratama</div>
+          </div>
+        </div>
+      `;
+    }
+
+    /* ==========================================================================
+       4. VIEW CONTROLLERS (HASH ROUTER)
+       ========================================================================== */
+    function viewHome() {
+      const phone = window.dataPhone.primary;
+      const title = `${phone} Jasa Laundry Kiloan & Satuan Bogor Terpercaya | Bogor Laundry Listing`;
+      const desc = "Pusat direktori & jasa laundry kiloan, express, karpet, dan satuan di Kabupaten dan Kota Bogor. Layanan antar jemput cepat dan higienis.";
+      updateSEO(title, desc);
+
+      let wilayahHtml = '';
+      for (const [kabKey, kabData] of Object.entries(window.dataWilayah)) {
+        wilayahHtml += `
+          <div class="wilayah-box">
+            <h3 style="color:var(--primary-blue); font-size:1.15rem; margin-bottom:8px;">${kabData.name} (${kabData.type})</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">Pilih kecamatan terdekat untuk menemukan cakupan kelurahan dan layanan:</p>
+            <div class="wilayah-pills">
+              ${Object.entries(kabData.kecamatan).map(([kecKey, kecData]) => `
+                <a href="#/wilayah/${kabKey}/${kecKey}" class="wilayah-pill">
+                  Kec. ${kecData.name}
+                </a>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }
+
+      return `
+        <div class="hero">
+          <h1>Pusat Laundry Kiloan & Satuan Bogor</h1>
+          <p>Layanan cuci higienis 1 mesin 1 pelanggan dengan deterjen ramah lingkungan dan teknologi pengering modern. Siap melayani seluruh wilayah Kabupaten dan Kota Bogor.</p>
+          <a href="${createWaLink("Halo, saya ingin pesan antar-jemput laundry di Bogor.")}" target="_blank" class="hero-btn">Order Antar Jemput WhatsApp</a>
+        </div>
+
+        <div class="section-title">Cakupan Area Layanan Laundry Se-Bogor</div>
+        ${wilayahHtml}
+
+        ${renderServicesList("Seluruh Bogor")}
+
+        <div class="cta-banner">
+          <h2>Cucian Menumpuk? Serahkan Pada Kami!</h2>
+          <p>Dapatkan diskon khusus pelanggan baru dan jaminan garansi cuci ulang jika tidak bersih/wangi.</p>
+          <a href="${createWaLink("Halo, saya mau klaim info promo laundry Bogor.")}" target="_blank" class="cta-btn">Hubungi Hotline: ${window.dataPhone.formatted}</a>
+        </div>
+
+        ${renderFaq("Bogor")}
+        ${renderTestimonials("Bogor")}
+      `;
+    }
+
+    function viewKecamatan(kabKey, kecKey) {
+      const kabData = window.dataWilayah[kabKey];
+      if (!kabData || !kabData.kecamatan[kecKey]) return viewNotFound();
+
+      const kecData = kabData.kecamatan[kecKey];
+      const phone = window.dataPhone.primary;
+      const title = `${phone} Laundry Kiloan di ${kecData.name} ${kabData.name} | Bogor Laundry Listing`;
+      const desc = `Jasa laundry kiloan express, cuci setrika, sepatu, dan karpet di Kecamatan ${kecData.name}, ${kabData.name}. Pesan antar jemput via ${phone}.`;
+      updateSEO(title, desc);
+
+      const desaList = kecData.desa || [];
+
+      return `
+        <div class="breadcrumb">
+          <a href="#">Beranda</a> <span class="separator">/</span>
+          <span>${kabData.name}</span> <span class="separator">/</span>
+          <strong>Kec. ${kecData.name}</strong>
+        </div>
+
+        <div class="hero">
+          <h1>Jasa Laundry Kiloan & Satuan di Kec. ${kecData.name}</h1>
+          <p>Solusi laundry bersih, rapi, dan wangi dengan layanan antar jemput langsung ke rumah Anda di wilayah Kecamatan ${kecData.name}, ${kabData.name}.</p>
+          <a href="${createWaLink(`Halo, saya mau pesan laundry di Kecamatan ${kecData.name}.`)}" target="_blank" class="hero-btn">Hubungi Laundry ${kecData.name}</a>
+        </div>
+
+        <div class="wilayah-box">
+          <h3 style="color:var(--primary-blue); font-size:1.15rem; margin-bottom:8px;">Kelurahan / Desa di Kecamatan ${kecData.name}</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">Pilih desa/kelurahan Anda untuk detail spesifik:</p>
+          <div class="wilayah-pills">
+            ${desaList.map(desa => `
+              <a href="#/wilayah/${kabKey}/${kecKey}/${slugify(desa)}" class="wilayah-pill">
+                Ds/Kel. ${desa}
+              </a>
+            `).join('')}
+          </div>
+        </div>
+
+        ${renderServicesList(`Kecamatan ${kecData.name}`)}
+
+        <div class="cta-banner">
+          <h2>Butuh Laundry Kilat di ${kecData.name}?</h2>
+          <p>Kurir kami siap jemput pakaian kotor Anda sekarang juga.</p>
+          <a href="${createWaLink(`Halo, saya mau jemput laundry kilat di Kec. ${kecData.name}.`)}" target="_blank" class="cta-btn">WhatsApp: ${window.dataPhone.formatted}</a>
+        </div>
+
+        ${renderFaq(`Kecamatan ${kecData.name}`)}
+        ${renderTestimonials(`Kecamatan ${kecData.name}`)}
+      `;
+    }
+
+    function viewDesa(kabKey, kecKey, desaSlug) {
+      const kabData = window.dataWilayah[kabKey];
+      if (!kabData || !kabData.kecamatan[kecKey]) return viewNotFound();
+
+      const kecData = kabData.kecamatan[kecKey];
+      const desaName = (kecData.desa || []).find(d => slugify(d) === desaSlug) || desaSlug.replace(/-/g, ' ').toUpperCase();
+
+      const phone = window.dataPhone.primary;
+      const title = `${phone} Laundry Kiloan Di ${desaName} ${kecData.name} ${kabData.name} Listing`;
+      const desc = `Layanan laundry kiloan, sepatu, dan bedcover di Desa/Kelurahan ${desaName}, Kecamatan ${kecData.name}, ${kabData.name}. Pesan cepat via WhatsApp ${phone}.`;
+      updateSEO(title, desc);
+
+      return `
+        <div class="breadcrumb">
+          <a href="#">Beranda</a> <span class="separator">/</span>
+          <a href="#/wilayah/${kabKey}/${kecKey}">Kec. ${kecData.name}</a> <span class="separator">/</span>
+          <strong>Ds/Kel. ${desaName}</strong>
+        </div>
+
+        <div class="hero">
+          <h1>Jasa Laundry Terdekat di ${desaName}, ${kecData.name}</h1>
+          <p>Layanan laundry kiloan profesional dengan fasilitas antar jemput untuk warga ${desaName} dan sekitarnya. Higienis, terpisah per pelanggan, dan tepat waktu.</p>
+          <a href="${createWaLink(`Halo, saya mau order antar jemput laundry di ${desaName}, Kec. ${kecData.name}.`)}" target="_blank" class="hero-btn">Jemput Laundry di ${desaName}</a>
+        </div>
+
+        <div class="wilayah-box">
+          <h3 style="color:var(--primary-blue); font-size:1.15rem; margin-bottom:8px;">Area Lain di Kecamatan ${kecData.name}</h3>
+          <div class="wilayah-pills">
+            ${kecData.desa.map(d => `
+              <a href="#/wilayah/${kabKey}/${kecKey}/${slugify(d)}" class="wilayah-pill" style="${slugify(d) === desaSlug ? 'background:var(--primary-blue); color:#fff;' : ''}">
+                ${d}
+              </a>
+            `).join('')}
+          </div>
+        </div>
+
+        ${renderServicesList(`${desaName}, ${kecData.name}`)}
+
+        <div class="cta-banner">
+          <h2>Antar Jemput Langsung ke ${desaName}</h2>
+          <p>Hemat waktu Anda, biarkan tim kami yang mencuci, mengeringkan, dan menyetrika dengan rapi.</p>
+          <a href="${createWaLink(`Halo, konfirmasi biaya antar jemput laundry untuk wilayah ${desaName}.`)}" target="_blank" class="cta-btn">Chat Sekarang</a>
+        </div>
+
+        ${renderFaq(`${desaName}`)}
+        ${renderTestimonials(`${desaName}`)}
+      `;
+    }
+
+    function viewNotFound() {
+      updateSEO("Halaman Tidak Ditemukan | Bogor Laundry Listing", "Halaman yang Anda cari tidak ditemukan.");
+      return `
+        <div style="text-align:center; padding: 60px 20px; background:#fff; border-radius:10px; margin:30px 0;">
+          <h2 style="font-size:2rem; color:var(--primary-blue); margin-bottom:10px;">404 - Halaman Tidak Ditemukan</h2>
+          <p style="color:var(--text-muted); margin-bottom:20px;">Halaman atau wilayah yang Anda cari tidak terdaftar dalam sistem listing kami.</p>
+          <a href="#" class="hero-btn">Kembali ke Halaman Utama</a>
+        </div>
+      `;
+    }
+
+    /* ==========================================================================
+       5. HASH ROUTER ENGINE
+       ========================================================================== */
+    function handleRoute() {
+      const rawHash = window.location.hash.slice(1);
+      const cleanPath = rawHash.startsWith('/') ? rawHash.slice(1) : rawHash;
+      const segments = cleanPath ? cleanPath.split('/').filter(Boolean) : [];
+
+      const app = document.getElementById('appContent');
+      window.scrollTo(0, 0);
+
+      // Routing Table:
+      // # atau kosong -> Home
+      // #/wilayah/[kab-kota] -> redirect / level 1
+      // #/wilayah/[kab-kota]/[kecamatan] -> Detail Level 2
+      // #/wilayah/[kab-kota]/[kecamatan]/[desa] -> Detail Level 3
+      if (segments.length === 0) {
+        app.innerHTML = viewHome();
+      } else if (segments[0] === 'wilayah') {
+        if (segments.length === 2) {
+          app.innerHTML = viewHome(); // Fallback jika cuma kab-kota
+        } else if (segments.length === 3) {
+          app.innerHTML = viewKecamatan(segments[1], segments[2]);
+        } else if (segments.length === 4) {
+          app.innerHTML = viewDesa(segments[1], segments[2], segments[3]);
+        } else {
+          app.innerHTML = viewNotFound();
+        }
+      } else {
+        app.innerHTML = viewNotFound();
+      }
+
+      // Update CTA links
+      syncDynamicLinks();
+    }
+
+    function syncDynamicLinks() {
+      const phoneBtn = document.getElementById('navPhoneBtn');
+      const floatingWa = document.getElementById('floatingWaBtn');
+      const footerPhone = document.getElementById('footerPhoneDisplay');
+
+      if (phoneBtn) phoneBtn.href = window.dataPhone.waLink || createWaLink("Halo, saya ingin bertanya tentang layanan Bogor Laundry Listing.");
+      if (floatingWa) floatingWa.href = window.dataPhone.waLink || createWaLink("Halo, saya ingin bertanya tentang layanan Bogor Laundry Listing.");
+      if (footerPhone) footerPhone.innerText = `WhatsApp: ${window.dataPhone.formatted || window.dataPhone.primary}`;
+    }
+
+    // Event Listeners
+    window.addEventListener('hashchange', handleRoute);
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('yearVal').innerText = new Date().getFullYear();
+      handleRoute();
+    });
+  </script>
+</body>
+</html>
