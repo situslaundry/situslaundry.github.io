@@ -1,0 +1,221 @@
+---
+layout: default
+---
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="post-container">
+      {% if page.categories.first %}
+        <span class="post-category-badge">{{ page.categories.first }}</span>
+      {% endif %}
+      <h1 class="post-title">{{ page.title }}</h1>
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          📅 {{ page.date | date: "%d %B %Y" }}
+        </time>
+        {% if page.author %}
+          <span class="meta-divider">•</span>
+          <span>✍️ {{ page.author }}</span>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  {% if page.image %}
+    <div class="post-featured-image">
+      <div class="post-container">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" loading="eager" />
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="post-body">
+    <div class="post-container post-content">
+      {{ content }}
+    </div>
+  </div>
+
+  {% comment %} ARTICLE PAGINATION (PREVIOUS / NEXT POST) {% endcomment %}
+  <nav class="post-pagination" aria-label="Post Navigation">
+    <div class="post-container">
+      <div class="post-pagination-grid">
+        {% if page.previous.url %}
+          <a href="{{ page.previous.url | relative_url }}" class="post-nav-card prev-post">
+            <span class="nav-direction">&larr; Artikel Sebelumnya</span>
+            <span class="nav-title">{{ page.previous.title }}</span>
+          </a>
+        {% else %}
+          <div class="post-nav-card disabled"></div>
+        {% endif %}
+
+        {% if page.next.url %}
+          <a href="{{ page.next.url | relative_url }}" class="post-nav-card next-post">
+            <span class="nav-direction">Artikel Selanjutnya &rarr;</span>
+            <span class="nav-title">{{ page.next.title }}</span>
+          </a>
+        {% else %}
+          <div class="post-nav-card disabled"></div>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</article>
+
+<style>
+  .post-single {
+    padding: 40px 0 80px;
+    background-color: var(--bg);
+    color: var(--text);
+  }
+
+  .post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+
+  .post-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .post-category-badge {
+    display: inline-block;
+    background-color: var(--royal-blue);
+    color: var(--white);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .post-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.02em;
+  }
+
+  .post-meta {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .post-featured-image {
+    margin-bottom: 40px;
+  }
+
+  .post-featured-image img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+
+  /* Post Content Formatting */
+  .post-content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  .post-content h2,
+  .post-content h3,
+  .post-content h4 {
+    color: var(--text);
+    font-weight: 700;
+    margin: 40px 0 16px 0;
+  }
+
+  .post-content p {
+    margin-bottom: 24px;
+  }
+
+  .post-content a {
+    color: var(--royal-blue);
+    text-decoration: underline;
+  }
+
+  .post-content blockquote {
+    margin: 32px 0;
+    padding: 16px 24px;
+    border-left: 4px solid var(--royal-blue);
+    background-color: var(--bg-soft);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-style: italic;
+  }
+
+  .post-content code {
+    font-family: var(--font-mono);
+    background-color: var(--bg-soft);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+  }
+
+  /* Single Post Navigation / Pagination */
+  .post-pagination {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .post-pagination-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .post-nav-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .post-nav-card:hover:not(.disabled) {
+    transform: translateY(-2px);
+    border-color: var(--royal-blue);
+  }
+
+  .post-nav-card.next-post {
+    text-align: right;
+  }
+
+  .nav-direction {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--royal-blue);
+    margin-bottom: 6px;
+  }
+
+  .nav-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 640px) {
+    .post-pagination-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .post-nav-card.next-post {
+      text-align: left;
+    }
+  }
+</style>
