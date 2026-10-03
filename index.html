@@ -1,1 +1,178 @@
-tes
+---
+layout: default
+title: "Beranda - Blogjak Theme"
+description: "Landing page resmi Blogjak Theme. Belajar Jekyll, Markdown, dan pengembangan web modern."
+permalink: /
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/landing.css' | relative_url }}">
+<script src="{{ '/assets/js/landing.js' | relative_url }}" defer></script>
+
+<div class="landing-page">
+  {% comment %} HERO SECTION {% endcomment %}
+  <section class="landing-hero">
+    <div class="landing-container">
+      <div class="landing-hero-grid">
+        <div class="landing-hero-content">
+          <div class="landing-badge">
+            <span class="landing-badge-icon">✨</span>
+            <span>Blog Terpercaya</span>
+          </div>
+          <h1 class="landing-hero-title">
+            Belajar Jekyll & <span class="landing-title-accent">Markdown</span> Modern
+          </h1>
+          <p class="landing-hero-subtitle">
+            Platform edukasi dan wawasan seputar static site generator, web development, dan performa website terbaik dengan antarmuka yang ramah pengguna.
+          </p>
+          <div class="landing-hero-actions">
+            <a href="{{ '/blog/' | relative_url }}" class="landing-btn landing-btn-primary">Baca Blog</a>
+            <a href="{{ '/about/' | relative_url }}" class="landing-btn landing-btn-outline">Tentang Kami</a>
+          </div>
+          <div class="landing-stats-row">
+            <div class="landing-stat-item">
+              <span class="landing-stat-number" data-count="50">50+</span>
+              <span class="landing-stat-label">Artikel</span>
+            </div>
+            <div class="landing-stat-divider"></div>
+            <div class="landing-stat-item">
+              <span class="landing-stat-number" data-count="5">5</span>
+              <span class="landing-stat-label">Kategori</span>
+            </div>
+            <div class="landing-stat-divider"></div>
+            <div class="landing-stat-item">
+              <span class="landing-stat-number" data-count="10000">10rb+</span>
+              <span class="landing-stat-label">Pembaca</span>
+            </div>
+          </div>
+        </div>
+        <div class="landing-hero-media">
+          <div class="landing-hero-image-wrapper">
+            <img src="https://picsum.photos/seed/blog/800/800" alt="Hero Illustration" class="landing-hero-img" width="800" height="800" loading="eager" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} FEATURES SECTION {% endcomment %}
+  <section class="landing-features">
+    <div class="landing-container">
+      <div class="landing-section-header">
+        <span class="landing-section-tag">Keunggulan</span>
+        <h2 class="landing-section-title">Kenapa Pilih Blog Ini?</h2>
+        <p class="landing-section-subtitle">Didesain khusus untuk kecepatan, kenyamanan membaca, dan efisiensi penyampaian informasi.</p>
+      </div>
+
+      <div class="landing-features-grid">
+        <div class="landing-feature-card">
+          <div class="landing-feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="landing-feature-title">Performa Cepat</h3>
+          <p class="landing-feature-desc">Dibuat dengan Jekyll tanpa overhead database berat, membuat pemuatan halaman secepat kilat.</p>
+        </div>
+
+        <div class="landing-feature-card">
+          <div class="landing-feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="landing-feature-title">Konten Terpercaya</h3>
+          <p class="landing-feature-desc">Ditulis berdasarkan pengalaman praktis dan standar dokumentasi teknis yang jelas dan akurat.</p>
+        </div>
+
+        <div class="landing-feature-card">
+          <div class="landing-feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <h3 class="landing-feature-title">Topik Lengkap</h3>
+          <p class="landing-feature-desc">Mencakup tutorial dari dasar hingga tingkat lanjut mengenai Jekyll, CSS, JS, dan Static Site.</p>
+        </div>
+
+        <div class="landing-feature-card">
+          <div class="landing-feature-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 8v8"></path>
+              <path d="M8 12h8"></path>
+            </svg>
+          </div>
+          <h3 class="landing-feature-title">100% Gratis</h3>
+          <p class="landing-feature-desc">Semua artikel, tutorial, dan sumber daya dapat diakses secara penuh tanpa biaya tersembunyi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} LATEST POSTS SECTION {% endcomment %}
+  <section class="landing-latest">
+    <div class="landing-container">
+      <div class="landing-section-header-flex">
+        <div>
+          <span class="landing-section-tag">Update Terbaru</span>
+          <h2 class="landing-section-title">Artikel Terbaru</h2>
+        </div>
+        <a href="{{ '/blog/' | relative_url }}" class="landing-btn-link">Lihat Semua Artikel &rarr;</a>
+      </div>
+
+      <div class="landing-posts-grid">
+        {% for post in site.posts limit:3 %}
+          <article class="landing-post-card">
+            <div class="landing-post-thumb">
+              {% if post.image %}
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" />
+              {% else %}
+                <img src="https://picsum.photos/seed/{{ post.id | slugify }}/600/400" alt="{{ post.title }}" loading="lazy" />
+              {% endif %}
+              {% if post.categories.first %}
+                <span class="landing-post-badge">{{ post.categories.first }}</span>
+              {% endif %}
+            </div>
+            <div class="landing-post-body">
+              <div class="landing-post-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
+              </div>
+              <h3 class="landing-post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+              </h3>
+              <p class="landing-post-excerpt">
+                {% if post.excerpt %}
+                  {{ post.excerpt | strip_html | truncatewords: 20 }}
+                {% else %}
+                  {{ post.content | strip_html | truncatewords: 20 }}
+                {% endif %}
+              </p>
+              <a href="{{ post.url | relative_url }}" class="landing-post-readmore">Baca Selengkapnya &rarr;</a>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="landing-mobile-more">
+        <a href="{{ '/blog/' | relative_url }}" class="landing-btn landing-btn-outline">Lihat Semua Artikel</a>
+      </div>
+    </div>
+  </section>
+
+  {% comment %} CTA SECTION {% endcomment %}
+  <section class="landing-cta">
+    <div class="landing-container">
+      <div class="landing-cta-box">
+        <div class="landing-cta-content">
+          <h2 class="landing-cta-title">Siap Mulai Membaca?</h2>
+          <p class="landing-cta-desc">Temukan ratusan artikel menarik seputar teknologi, web development, dan pengalaman digital terkini.</p>
+          <div class="landing-cta-actions">
+            <a href="{{ '/blog/' | relative_url }}" class="landing-btn landing-btn-primary">Mulai Baca</a>
+            <a href="{{ '/contact/' | relative_url }}" class="landing-btn landing-btn-secondary">Hubungi Kami</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
