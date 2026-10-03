@@ -1,0 +1,165 @@
+<header class="site-header">
+  <div class="header-container">
+    {% comment %} BRAND / LOGO {% endcomment %}
+    <a class="site-title" href="{{ '/' | relative_url }}">
+      {{ site.title | default: "Blogjak" }}
+    </a>
+
+    {% comment %} NAVIGATION & CONTROLS {% endcomment %}
+    <nav class="site-nav" aria-label="Main Navigation">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ '/' | relative_url }}">Beranda</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ '/blog/' | relative_url }}">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ '/about/' | relative_url }}">Tentang</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ '/contact/' | relative_url }}">Kontak</a>
+        </li>
+      </ul>
+
+      {% comment %} DARK MODE TOGGLE BUTTON {% endcomment %}
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle Dark Mode">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Header Layout */
+  .site-header {
+    background-color: var(--bg-elev);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+  }
+
+  .nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--royal-blue);
+  }
+
+  /* Theme Toggle Button */
+  .theme-toggle-btn {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+  }
+
+  .theme-toggle-btn:hover {
+    background: var(--border);
+  }
+
+  /* Dark Mode Toggle Display Rules */
+  [data-theme="dark"] .sun-icon {
+    display: block;
+  }
+  [data-theme="dark"] .moon-icon {
+    display: none;
+  }
+  .sun-icon {
+    display: none;
+  }
+  .moon-icon {
+    display: block;
+  }
+</style>
+
+<script>
+  (function () {
+    'use strict';
+    if (window.__themeToggleInitialized) return;
+    window.__themeToggleInitialized = true;
+
+    function getPreferredTheme() {
+      var saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+    }
+
+    // Initial load theme application
+    applyTheme(getPreferredTheme());
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('theme-toggle');
+      if (!btn || btn.dataset.bound === 'true') return;
+      btn.dataset.bound = 'true';
+
+      btn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        var next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next);
+      });
+    });
+  })();
+</script>
