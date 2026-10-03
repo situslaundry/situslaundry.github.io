@@ -1,0 +1,153 @@
+---
+layout: default
+title: "Blog & Artikel"
+description: "Daftar lengkap artikel, panduan, dan tutorial seputar Jekyll dan web development."
+permalink: /blog/
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/landing.css' | relative_url }}">
+
+<div class="landing-page landing-blog-page">
+  {% comment %} MINI HERO SECTION {% endcomment %}
+  <section class="landing-blog-hero">
+    <div class="landing-container">
+      <h1 class="landing-blog-hero-title">Blog</h1>
+      <p class="landing-blog-hero-desc">Kumpulan tulisan, tutorial, dan informasi terbaru seputar web development dan static site generator.</p>
+    </div>
+  </section>
+
+  {% comment %} POSTS LIST & PAGINATION {% endcomment %}
+  <section class="landing-blog-content">
+    <div class="landing-container">
+      {% if paginator.posts.size > 0 %}
+        <div class="landing-posts-grid">
+          {% for post in paginator.posts %}
+            <article class="landing-post-card">
+              <div class="landing-post-thumb">
+                {% if post.image %}
+                  <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" />
+                {% else %}
+                  <img src="https://picsum.photos/seed/{{ post.id | slugify }}/600/400" alt="{{ post.title }}" loading="lazy" />
+                {% endif %}
+                {% if post.categories.first %}
+                  <span class="landing-post-badge">{{ post.categories.first }}</span>
+                {% endif %}
+              </div>
+              <div class="landing-post-body">
+                <div class="landing-post-meta">
+                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
+                </div>
+                <h2 class="landing-post-title">
+                  <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                </h2>
+                <p class="landing-post-excerpt">
+                  {% if post.excerpt %}
+                    {{ post.excerpt | strip_html | truncatewords: 22 }}
+                  {% else %}
+                    {{ post.content | strip_html | truncatewords: 22 }}
+                  {% endif %}
+                </p>
+                <a href="{{ post.url | relative_url }}" class="landing-post-readmore">Baca &rarr;</a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        {% comment %} PAGINATION {% endcomment %}
+        {% if paginator.total_pages > 1 %}
+          <nav class="landing-pagination" aria-label="Pagination">
+            <ul class="landing-pagination-list">
+              {% comment %} FIRST PAGE LINK {% endcomment %}
+              {% if paginator.previous_page %}
+                <li class="landing-page-item">
+                  <a href="{{ '/blog/' | relative_url }}" class="landing-page-link" aria-label="First">&laquo;</a>
+                </li>
+                <li class="landing-page-item">
+                  <a href="{{ paginator.previous_page_path | relative_url }}" class="landing-page-link" aria-label="Previous">&lsaquo;</a>
+                </li>
+              {% else %}
+                <li class="landing-page-item disabled"><span class="landing-page-link">&laquo;</span></li>
+                <li class="landing-page-item disabled"><span class="landing-page-link">&lsaquo;</span></li>
+              {% endif %}
+
+              {% comment %} NUMERIC PAGE LINKS {% endcomment %}
+              {% assign total_pages = paginator.total_pages %}
+              {% assign current_page = paginator.page %}
+
+              {% if total_pages <= 5 %}
+                {% for page_num in (1..total_pages) %}
+                  {% if page_num == current_page %}
+                    <li class="landing-page-item active"><span class="landing-page-link">{{ page_num }}</span></li>
+                  {% elsif page_num == 1 %}
+                    <li class="landing-page-item"><a href="{{ '/blog/' | relative_url }}" class="landing-page-link">{{ page_num }}</a></li>
+                  {% else %}
+                    <li class="landing-page-item"><a href="{{ '/blog/page/' | append: page_num | append: '/' | relative_url }}" class="landing-page-link">{{ page_num }}</a></li>
+                  {% endif %}
+                {% endfor %}
+              {% else %}
+                {% assign min_page = current_page | minus: 1 %}
+                {% assign max_page = current_page | plus: 1 %}
+
+                {% if min_page < 1 %}
+                  {% assign min_page = 1 %}
+                  {% assign max_page = 3 %}
+                {% endif %}
+
+                {% if max_page > total_pages %}
+                  {% assign max_page = total_pages %}
+                  {% assign min_page = total_pages | minus: 2 %}
+                {% endif %}
+
+                {% if min_page > 1 %}
+                  <li class="landing-page-item"><a href="{{ '/blog/' | relative_url }}" class="landing-page-link">1</a></li>
+                  {% if min_page > 2 %}
+                    <li class="landing-page-item disabled"><span class="landing-page-link">&hellip;</span></li>
+                  {% endif %}
+                {% endif %}
+
+                {% for page_num in (min_page..max_page) %}
+                  {% if page_num == current_page %}
+                    <li class="landing-page-item active"><span class="landing-page-link">{{ page_num }}</span></li>
+                  {% elsif page_num == 1 %}
+                    <li class="landing-page-item"><a href="{{ '/blog/' | relative_url }}" class="landing-page-link">{{ page_num }}</a></li>
+                  {% else %}
+                    <li class="landing-page-item"><a href="{{ '/blog/page/' | append: page_num | append: '/' | relative_url }}" class="landing-page-link">{{ page_num }}</a></li>
+                  {% endif %}
+                {% endfor %}
+
+                {% if max_page < total_pages %}
+                  {% if max_page < total_pages | minus: 1 %}
+                    <li class="landing-page-item disabled"><span class="landing-page-link">&hellip;</span></li>
+                  {% endif %}
+                  <li class="landing-page-item"><a href="{{ '/blog/page/' | append: total_pages | append: '/' | relative_url }}" class="landing-page-link">{{ total_pages }}</a></li>
+                {% endif %}
+              {% endif %}
+
+              {% comment %} NEXT & LAST PAGE LINK {% endcomment %}
+              {% if paginator.next_page %}
+                <li class="landing-page-item">
+                  <a href="{{ paginator.next_page_path | relative_url }}" class="landing-page-link" aria-label="Next">&rsaquo;</a>
+                </li>
+                <li class="landing-page-item">
+                  <a href="{{ '/blog/page/' | append: total_pages | append: '/' | relative_url }}" class="landing-page-link" aria-label="Last">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="landing-page-item disabled"><span class="landing-page-link">&rsaquo;</span></li>
+                <li class="landing-page-item disabled"><span class="landing-page-link">&raquo;</span></li>
+              {% endif %}
+            </ul>
+          </nav>
+        {% endif %}
+
+      {% else %}
+        {% comment %} EMPTY STATE {% endcomment %}
+        <div class="landing-empty-state">
+          <div class="landing-empty-icon">📝</div>
+          <h3 class="landing-empty-title">Belum Ada Artikel</h3>
+          <p class="landing-empty-desc">Saat ini belum ada artikel yang diterbitkan. Silakan kembali lagi nanti!</p>
+          <a href="{{ '/' | relative_url }}" class="landing-btn landing-btn-primary">Kembali ke Beranda</a>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+</div>
